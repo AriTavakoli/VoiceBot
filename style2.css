@@ -1,0 +1,63 @@
+.body2 {
+  height: 400vh;
+}
+
+.filler {
+  height: 100vh;
+}
+
+
+[text-split] {
+  opacity: 0;
+}
+
+html.w-editor [text-split] {
+  opacity: 1;
+}
+
+.word {
+  overflow: hidden;
+  padding-bottom: 0.1em;
+  margin-bottom: -0.1em;
+  transform-origin: bottom;
+}
+
+
+.box {
+  width: 250px;
+  height: 250px;
+  background-color: #302c2c;
+  position: relative;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  display: grid;
+  grid-template-columns: auto auto ;
+
+  grid-gap: 10px;
+
+}
+
+
+
+
+.box2 {
+  width: 40px;
+
+  ;
+  height: 100px;
+  background-color: #cdbaba;
+  border-radius: 20px;
+  border-top-left-radius: 100px;
+  border-top-right-radius: 100px;
+
+}
+.box3 {
+  width: 150px;
+  height: 100px;
+  background-color: #cdbaba;
+  border-radius: 20px;
+  border-top-left-radius: 100px;
+  border-top-right-radius: 100px;
+
+}

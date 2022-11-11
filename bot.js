@@ -1,10 +1,10 @@
 const axios = require('axios');
 require('dotenv').config();
-const { Client, joinVoiceChannel, Intents, MessageAttachment, WebhookClient, Collection, GatewayIntentBits, EmbedBuilder, PremissionBitField, Premission } = require('discord.js');
+const { Client, joinVoiceChannel, Routes, ApplicationCommandOptionType, Intents, MessageAttachment, WebhookClient, Collection, GatewayIntentBits, EmbedBuilder, PremissionBitField, Premission } = require('discord.js');
 const fs = require('fs');
 const Discord = require('discord.js');
-
-
+const { REST } = require("@discordjs/rest");
+const { Player } = require("discord-player");
 
 
 
@@ -26,6 +26,14 @@ var sendWebhook = function () {
 
 };
 
+
+
+
+
+
+
+
+
 //const { entersState, joinVoiceChannel, VoiceConnectionStatus, EndBehaviorType } = require('@discordjs/voice');
 
 
@@ -41,8 +49,6 @@ const client = new Client({
     GatewayIntentBits.DirectMessages,
     GatewayIntentBits.GuildPresences
     ]
-
-
 });
 
 
@@ -64,6 +70,10 @@ client.on('messageCreate', async (message) => {
 });
 
 
+
+
+
+
 async function nasa() {
   const response = await axios.get('https://api.nasa.gov/planetary/apod?api_key=iIjIJG0PIaq2fk4UX4VzA7L8VF0dvA0BsbefQaJ7');
   console.log(response.data);
@@ -76,32 +86,20 @@ async function nasa() {
   return embed;
 }
 
-const sendMessage = async (message) => {
-  const requestOptions = {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ title: message })
-  };
-  fetch('http://localhost:4200/postMessage', requestOptions).then(response => response.json())
-    .then(console.log(message));
-};
-
-const sendMessage1 = async (message) => {
-  const requestOptions = {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ title: 'Activate Recording' })
-  };
-  fetch('http://localhost:4200/activate', requestOptions);
-};
 
 
-const sendMessageAxios = async () => {
+const sendON = async () => {
   const res = await axios.post('http://localhost:3500/activate', {
     answer: 42
   });
 };
 
+
+const sendOFF = async () => {
+  const res = await axios.post('http://localhost:3500/deactivate', {
+    answer: 42
+  });
+};
 
 
 
@@ -111,11 +109,12 @@ client.on("voiceStateUpdate", (oldState, newState) => {
   // if user is deafen or muted
   if (newState.selfDeaf) {
 
-    sendMessageAxios()
+    sendON()
 
   }
   if (!newState.selfDeaf) {
-    console.log("user undefed ");
+
+    sendOFF();
   }
 
 

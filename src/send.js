@@ -1,20 +1,4 @@
 
-
-
-const sendMessage = async (message) => {
-  const requestOptions = {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ title: message })
-  };
-  fetch('http://localhost:4200/postMessage', requestOptions).then(response => response.json())
-    .then(console.log(message));
-};
-
-
-
-
-
 const talk = document.getElementById('talk');
 const stop = document.getElementById('end');
 

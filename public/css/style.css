@@ -1,0 +1,34 @@
+#voice {
+   width: 50px;
+    height: 50px;
+}
+#gif {
+    width: 50px;
+    height: 50px;
+}
+body {
+    background-color: #302c2c;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    color: rgb(255, 245, 245);
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+    height: 400vh;
+}
+
+
+#embed-iframe {
+    width: 400px;
+    height: 200px;
+    background-color: white;
+}
+
+
+
+.word {
+	overflow: hidden;
+  padding-bottom: 0.1em;
+  margin-bottom: -0.1em;
+  transform-origin: bottom;
+}
